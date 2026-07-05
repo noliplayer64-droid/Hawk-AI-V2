@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk AI</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- =========================
+             Sidebar
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h1>🦅 Hawk AI</h1>
+                <p>Your Offline AI Assistant</p>
+            </div>
+
+            <div class="sidebar-buttons">
+                <button id="clearChatBtn">
+                    Clear Chat
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- =========================
+             Main Chat Area
+        ========================== -->
+        <main class="chat-container">
+
+            <!-- Header -->
+            <header class="chat-header">
+                <h2>Hawk AI</h2>
+                <span class="status">
+                    ● Offline Demo
+                </span>
+            </header>
+
+            <!-- Chat Messages -->
+            <section
+                id="chatHistory"
+                class="chat-history"
+                aria-label="Chat History"
+            >
+
+                <!-- Welcome Message -->
+                <div class="message ai">
+
+                    <div class="message-avatar">
+                        🦅
+                    </div>
+
+                    <div class="message-content">
+                        <div class="message-name">
+                            Hawk AI
+                        </div>
+
+                        <div class="message-text">
+                            Hello! I'm Hawk AI.
+
+                            This is an offline demonstration interface built
+                            using HTML, CSS and JavaScript.
+
+                            Type a message below and I'll respond using the
+                            built-in placeholder response system.
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Input Area -->
+            <footer class="chat-input-area">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Message Hawk AI..."
+                    rows="2"
+                    autocomplete="off"
+                ></textarea>
+
+                <button
+                    id="sendButton"
+                    type="button"
+                >
+                    Send
+                </button>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
