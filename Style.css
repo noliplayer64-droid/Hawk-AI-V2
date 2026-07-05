@@ -1,0 +1,424 @@
+/* ==================================================
+   Hawk AI - style.css
+   Modern Chat Interface
+   ================================================== */
+
+/* ------------------------------
+   Reset
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------
+   Root Variables
+------------------------------ */
+:root {
+    --bg-color: #0f172a;
+    --sidebar-color: #111827;
+    --header-color: #1e293b;
+    --input-color: #1e293b;
+
+    --user-message: #2563eb;
+    --ai-message: #1f2937;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+
+    --border-color: #334155;
+
+    --success: #22c55e;
+
+    --shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+
+    --transition: 0.2s ease;
+}
+
+/* ------------------------------
+   Body
+------------------------------ */
+body {
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background: var(--bg-color);
+    color: var(--text-primary);
+
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ------------------------------
+   App Layout
+------------------------------ */
+.app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ------------------------------
+   Sidebar
+------------------------------ */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-color);
+
+    border-right: 1px solid var(--border-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 20px;
+}
+
+.logo h1 {
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+}
+
+.logo p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar button {
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    background: #dc2626;
+    color: white;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.sidebar button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ------------------------------
+   Main Chat Area
+------------------------------ */
+.chat-container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+/* ------------------------------
+   Header
+------------------------------ */
+.chat-header {
+    background: var(--header-color);
+
+    border-bottom: 1px solid var(--border-color);
+
+    padding: 16px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    font-size: 1.25rem;
+}
+
+.status {
+    color: var(--success);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ------------------------------
+   Chat History
+------------------------------ */
+.chat-history {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.chat-history::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-history::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 999px;
+}
+
+.chat-history::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* ------------------------------
+   Message Layout
+------------------------------ */
+.message {
+    display: flex;
+    gap: 12px;
+
+    max-width: 85%;
+}
+
+/* AI Message */
+.message.ai {
+    align-self: flex-start;
+}
+
+/* User Message */
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+/* ------------------------------
+   Avatar
+------------------------------ */
+.message-avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #334155;
+
+    font-size: 1.2rem;
+}
+
+/* ------------------------------
+   Content Box
+------------------------------ */
+.message-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.message-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* ------------------------------
+   Message Bubble
+------------------------------ */
+.message-text {
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    box-shadow: var(--shadow);
+}
+
+/* AI Bubble */
+.message.ai .message-text {
+    background: var(--ai-message);
+}
+
+/* User Bubble */
+.message.user .message-text {
+    background: var(--user-message);
+}
+
+/* ------------------------------
+   Input Area
+------------------------------ */
+.chat-input-area {
+    display: flex;
+    gap: 12px;
+
+    padding: 20px;
+
+    background: var(--input-color);
+
+    border-top: 1px solid var(--border-color);
+}
+
+/* ------------------------------
+   Textarea
+------------------------------ */
+#messageInput {
+    flex: 1;
+
+    resize: none;
+
+    min-height: 56px;
+    max-height: 180px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+
+    background: #0f172a;
+    color: var(--text-primary);
+
+    font-size: 1rem;
+    line-height: 1.4;
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+#messageInput:focus {
+    border-color: #3b82f6;
+}
+
+#messageInput::placeholder {
+    color: #94a3b8;
+}
+
+/* ------------------------------
+   Send Button
+------------------------------ */
+#sendButton {
+    min-width: 110px;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    padding: 14px 18px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: white;
+    background: #2563eb;
+
+    transition: var(--transition);
+}
+
+#sendButton:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+#sendButton:active {
+    transform: translateY(0);
+}
+
+/* ------------------------------
+   Responsive Design
+------------------------------ */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar-buttons {
+        width: auto;
+    }
+
+    .sidebar button {
+        width: auto;
+        padding: 10px 16px;
+    }
+
+    .message {
+        max-width: 95%;
+    }
+
+    .chat-input-area {
+        flex-direction: column;
+    }
+
+    #sendButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-history {
+        padding: 16px;
+    }
+
+    .chat-header {
+        padding: 14px 16px;
+    }
+
+    .message-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .message-text {
+        padding: 12px;
+    }
+
+    #messageInput {
+        font-size: 0.95rem;
+    }
+}
